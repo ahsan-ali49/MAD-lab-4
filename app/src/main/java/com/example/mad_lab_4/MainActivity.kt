@@ -28,20 +28,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             MADlab4Theme {
-                val navController = rememberNavController()
-                NavHost(navController = navController, startDestination = "ShowPreferencesDataScreen"){
-                    composable("ShowPreferencesDataScreen"){
-                        ShowPreferencesDataScreen()
-                    }
-                    composable(
-                        "Task1/{color}",
-                        listOf(navArgument("color"){ type = NavType.StringType })
-                    ){
-                        backStackEntry ->
-                        val color = backStackEntry.arguments?.getString("color") ?: ""
-                        Task1Screen(color)
-                    }
-                }
+                ShowPreferencesDataScreen()
             }
         }
         val sharedPreferences : SharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
@@ -55,7 +42,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ShowPreferencesDataScreen() {
     val context = LocalContext.current
-
     Box(modifier = Modifier.fillMaxSize()){
         Column(
             modifier = Modifier.fillMaxSize(),
@@ -66,21 +52,8 @@ fun ShowPreferencesDataScreen() {
                 val intent = Intent(context, Task1::class.java)
                 context.startActivity(intent)
             }) {
-                Text(text = "Send Color")
+                Text(text = "Task 1")
             }
-        }
-    }
-}
-
-@Composable
-fun Task1Screen(color: String){
-    Box(modifier = Modifier.fillMaxSize()){
-        Column(
-            modifier = Modifier.fillMaxSize(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(text = color)
         }
     }
 }
