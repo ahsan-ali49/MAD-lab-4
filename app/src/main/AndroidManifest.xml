@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +28,8 @@
         <activity android:name=".Task1"/>
         <activity android:name=".Task2"/>
         <activity android:name=".Task3"/>
+        <activity android:name=".Task4"/>
+        <activity android:name=".Task5"/>
     </application>
 
 </manifest>
