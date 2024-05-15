@@ -61,6 +61,13 @@ fun ShowPreferencesDataScreen() {
             }) {
                 Text(text = "Task 2")
             }
+            Spacer(modifier = Modifier.size(20.dp))
+            Button(onClick = {
+                val intent = Intent(context, Task3::class.java)
+                context.startActivity(intent)
+            }) {
+                Text(text = "Task 3")
+            }
         }
     }
 }
